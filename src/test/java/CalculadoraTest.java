@@ -1,3 +1,5 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -18,31 +20,25 @@ class CalculadoraTest {
 
     @BeforeEach
     void instanciarObjetos() {
-        calc = new Calculadora(5);
+        calc = new Calculadora(3);
     }
-    
+
+    // Teste scriptado por: João Vitorino.
+    @Test
+    void dividirPorZero() {
+        Assertions.assertThrows(Exception.class, ()->{ calc.dividir(0); }, "Não foi retornada a Exception esperada.\nClasse: Calculadora"); 
+    }
+
     // Teste scriptado por: João Vitorino.
     @Test
     void dividir() throws Exception {
-        int valor = 5;
-        int resultadoEsperando = 1;
-        calc.dividir(valor);
+        calc.dividir(2);
+        double resultadoEsperando = 1.5;
         
         int resultadoObtido = calc.getMemoria();
         Assertions.assertEquals(resultadoEsperando, resultadoObtido);
     }
 
-    // Teste scriptado por: João Vitorino.
-    @Test
-    void dividirPorZero() throws Exception {
-        int valor = 5;
-        double resultadoEsperando = 1;
-        calc.dividir(valor);
-
-        int resultadoObtido = calc.getMemoria();
-        Assertions.assertThrows(Exception.class, ()->{ calc.dividir(0); }, "Não foi retornada a Exception esperada.\nClasse: Calculadora"); 
-    }
-    
     @AfterEach
     void finalizarCadaMetodoTeste() {
         System.out.println("Finalizando caso de teste");
@@ -52,4 +48,5 @@ class CalculadoraTest {
     static void finalizarTeste() {
         System.out.println("Fim do teste!!!");
     }
+
 }
