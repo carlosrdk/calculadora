@@ -23,8 +23,9 @@ class CalculadoraTest {
         calc = new Calculadora(3);
     }
 
+     // Bruno Vieira
     @Test
-    void somar() {
+    void somarNumeroNegativo() {
         System.out.println("Teste de soma!");
 
         int valor = -5;
@@ -36,8 +37,9 @@ class CalculadoraTest {
         Assertions.assertEquals(resultadoEsperando, resultadoObtido);
     }
 
+    // Bruno Vieira
     @Test
-    void subtrair() {
+    void subtrairNumeroPositivo() {
         int valor = 10;
         int resultadoEsperando = -7;
         calc.subtrair(valor);
@@ -45,18 +47,6 @@ class CalculadoraTest {
         int resultadoObtido = calc.getMemoria();
 
         Assertions.assertEquals(resultadoEsperando, resultadoObtido);
-    }
-
-    @Test
-    public void testSomarNumeroNegativo() {
-        calc.somar(-2);
-        assertEquals(1, calc.getMemoria());
-    }
-
-    @Test
-    public void testSubtrairNumeroPositivo() {
-        calc.subtrair(2);
-        assertEquals(1, calc.getMemoria());
     }
 
     @Test
