@@ -56,17 +56,22 @@ class CalculadoraTest {
         assertEquals(15, calc.getMemoria());
     }
 
+    // Teste scriptado por: João Vitorino.
     @Test
-    public void testDividirPorZero() throws Exception {
-        calc.dividir(0);
+    void dividirPorZero() {
+        Assertions.assertThrows(Exception.class, ()->{ calc.dividir(0); }, "Não foi retornada a Exception esperada.\nClasse: Calculadora"); 
     }
 
+    // Teste scriptado por: João Vitorino.
     @Test
-    public void testDividirPorValorPositivo() throws Exception {
-        calc.dividir(3);
-        assertEquals(1, calc.getMemoria());
+    void dividir() throws Exception {
+        calc.dividir(2);
+        double resultadoEsperando = 1.5;
+        
+        int resultadoObtido = calc.getMemoria();
+        Assertions.assertEquals(resultadoEsperando, resultadoObtido);
     }
-
+    
     @Test
     public void testExponenciarComValorMaiorQue10() throws Exception {
         calc.exponenciar(11);
@@ -93,73 +98,4 @@ class CalculadoraTest {
     static void finalizarTeste() {
         System.out.println("Fim do teste!!!");
     }
-
-    // Relatório dos testes:
-
-    // Método a ser testado: Construtor Sem Parâmetro
-
-    // Cenário de Teste (Entradas): N/A
-
-    // Resultado Esperado: Valor da memória igual a 0.
-
-    // Resultado Obtido: Valor da memória igual a 0.
-
-    // Método a ser testado: Construtor Com Parâmetro
-
-    // Cenário de Teste (Entradas): Valor de memória = 3.
-
-    // Resultado Esperado: Valor da memória igual a 3.
-
-    // Resultado Obtido: Valor da memória igual a 3.
-
-    // Método a ser testado: Multiplicar
-
-    // Cenário de Teste (Entradas): Valor atual da memória = 3, multiplicando por 2.
-
-    // Resultado Esperado: Valor da memória igual a 3.
-
-    // Resultado Obtido: Valor da memória igual a 3.
-
-    // Método a ser testado: Dividir Por Zero
-
-    // Cenário de Teste (Entradas): Valor atual da memória = 3, dividindo por 0.
-
-    // Resultado Esperado: Exceção lançada ("Divisão por zero!!!").
-
-    // Resultado Obtido: Exceção lançada ("Divisão por zero!!!").
-
-    // Método a ser testado: Dividir Por Valor Positivo
-
-    // Cenário de Teste (Entradas): Valor atual da memória = 3, dividindo por 2.
-
-    // Resultado Esperado: Valor da memória igual a 3.
-
-    // Resultado Obtido: Valor da memória igual a 3.
-
-    // Método a ser testado: Exponenciar Com Valor Maior Que 10
-
-    // Cenário de Teste (Entradas): Valor atual da memória = 3, exponenciando por
-    // 11.
-
-    // Resultado Esperado: Exceção lançada ("Expoente incorreto, valor máximo é
-    // 10.").
-
-    // Resultado Obtido: Exceção lançada ("Expoente incorreto, valor máximo é 10.").
-
-    // Método a ser testado: Exponenciar Por 1
-
-    // Cenário de Teste (Entradas): Valor atual da memória = 3, exponenciando por 1.
-
-    // Resultado Esperado: Valor da memória igual a 3.
-
-    // Resultado Obtido: Valor da memória igual a 3.
-
-    // Método a ser testado: Zerar Memória
-
-    // Cenário de Teste (Entradas): N/A
-
-    // Resultado Esperado: Valor da memória igual a 0.
-
-    // Resultado Obtido: Valor da memória igual a 0
-
 }
