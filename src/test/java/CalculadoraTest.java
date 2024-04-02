@@ -20,47 +20,29 @@ class CalculadoraTest {
     void instanciarObjetos() {
         calc = new Calculadora(5);
     }
-
+    
+    // Teste scriptado por: João Vitorino.
     @Test
-    void somar() {
-        System.out.println("Teste de soma!");
-
-        int valor = -5;
-        int resultadoEsperando = 0;
-        calc.somar(valor);
-
+    void dividir() throws Exception {
+        int valor = 5;
+        int resultadoEsperando = 1;
+        calc.dividir(valor);
+        
         int resultadoObtido = calc.getMemoria();
-
         Assertions.assertEquals(resultadoEsperando, resultadoObtido);
     }
 
+    // Teste scriptado por: João Vitorino.
     @Test
-    void subtrair() {
-        int valor = 10;
-        int resultadoEsperando = -5;
-        calc.subtrair(valor);
+    void dividirPorZero() throws Exception {
+        int valor = 5;
+        double resultadoEsperando = 1;
+        calc.dividir(valor);
 
         int resultadoObtido = calc.getMemoria();
-
-        Assertions.assertEquals(resultadoEsperando, resultadoObtido);
+        Assertions.assertThrows(Exception.class, ()->{ calc.dividir(0); }, "Não foi retornada a Exception esperada.\nClasse: Calculadora"); 
     }
-
-    @Test
-    void multiplicar() {
-    }
-
-    @Test
-    void dividir() {
-    }
-
-    @Test
-    void exponenciar() {
-    }
-
-    @Test
-    void zerarMemoria() {
-    }
-
+    
     @AfterEach
     void finalizarCadaMetodoTeste() {
         System.out.println("Finalizando caso de teste");
