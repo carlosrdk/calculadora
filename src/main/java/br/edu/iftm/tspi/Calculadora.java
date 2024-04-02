@@ -28,7 +28,7 @@ public class Calculadora {
     }
 
     public void multiplicar(int valor) {
-        this.memoria = this.memoria / valor;
+        this.memoria = this.memoria * valor;
     }
 
     public void dividir(int valor) throws Exception {

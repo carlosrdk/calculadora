@@ -59,10 +59,12 @@ class CalculadoraTest {
         assertEquals(1, calc.getMemoria());
     }
 
+
+    // Lucas Azevedo
     @Test
     public void testMultiplicarNumeroPositivo() {
-        calc.multiplicar(2);
-        assertEquals(6, calc.getMemoria());
+        calc.multiplicar(5);
+        assertEquals(15, calc.getMemoria());
     }
 
     @Test
